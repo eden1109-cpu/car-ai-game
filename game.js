@@ -360,4 +360,5 @@
   buildSkinUI();
   updateUI();
   requestAnimationFrame(tick);
+  window.__GAME_READY__ = true;
 })();

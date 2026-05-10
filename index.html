@@ -33,6 +33,19 @@
     </div>
   </div>
 
-  <script src="./game.js"></script>
+  <script>window.__GAME_READY__=false;</script>
+  <script src="./game.js" defer></script>
+  <script>
+    setTimeout(() => {
+      if (!window.__GAME_READY__) {
+        const msg = document.getElementById('message');
+        if (msg) {
+          msg.classList.remove('hidden');
+          msg.querySelector('h1').textContent = 'LOAD ERROR';
+          msg.querySelector('p').textContent = 'ゲームの読み込みに失敗しました。再読み込みしてください。';
+        }
+      }
+    }, 1500);
+  </script>
 </body>
 </html>
